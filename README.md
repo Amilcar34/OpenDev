@@ -1,11 +1,21 @@
 # OpenDev Challenges
 
+## Armado de ambiente
+
+- JDK 11
+- Maven 3.6.3 o superior
+
+## Doc
+
+ - Esta disponible en ```/doc/index.html``` lo que se espera de cada método y se tomó como [criterio de aceptacion](https://www.cybermedian.com/es/definition-of-done-vs-acceptance-criteria-in-scrum/) para el desarrollo de las [pruebas de validación](https://es.wikipedia.org/wiki/Pruebas_de_validaci%C3%B3n)
+ - En este proyecto se puede evaluar el [coverage](https://es.wikipedia.org/wiki/Cobertura_de_c%C3%B3digo) de los test ejecutando en la raiz del proyecto ```mvn verify``` y entrando a ```/target/site/jacoco/index.html```
+
 ## Criterios generales
 
 - Para resolver los ejercicios en general alcanza con implementar un método. De todas maneras, está permitido agregar
-  métodos, clases, interfaces o lo que consideres necesario
+  métodos, clases, interfaces o lo que consideres necesario.
 - Para verificar la implementación se pueden ejecutar los test correspondientes a cada ejercicio. Los tests se
-  encuentran en el package correspondiente al ejercicio dentro de src/test/
+  encuentran en el package correspondiente al ejercicio dentro de ```src/test/```
 - Se espera ver implementaciones de hasta JAVA 11 inclusive.
 
 ## Ejercicio 1: Sorting

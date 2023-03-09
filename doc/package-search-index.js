@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.opendev.alphabetSoup"},{"l":"com.opendev.sorting"},{"l":"com.opendev.strings"}]
