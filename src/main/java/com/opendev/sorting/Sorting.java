@@ -1,6 +1,8 @@
 package com.opendev.sorting;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Sorting {
@@ -14,27 +16,16 @@ public class Sorting {
 	 */
 	public static List<Jugador> ordenarPorPuntuacionYNombre(List<Jugador> jugadores) {
 		List<Jugador> jugadoresOrdenados = new ArrayList<>();
+		jugadoresOrdenados.addAll(jugadores);
 
-		// Comparator<Jugador> comparadorDescendente = Collections.reverseOrder();
-		// Collections.sort(jugadoresOrdenados, comparadorDescendente);
-
-		/*
-		 * Collections.sort(jugadoresOrdenados, new Comparator<Jugador>() {
-		 * 
-		 * @Override public int compare(Jugador o1, Jugador o2) { //return new
-		 * Jugador(o2.getPuntuacion().compareTo(new Jugador(o1.getPuntuacion()))); } });
-		 */
-
-		jugadoresOrdenados.sort((o1, o2) -> {
+		jugadores.sort((o1, o2) -> {
 			int a = o1.getNombre().compareTo(o2.getNombre());
 			if (a != 0) {
 				return a;
 			}
-			//return Integer.valueOf(o2.getPuntuacion().compareTo(o1.getPuntuacion()));
 			return Integer.valueOf(o2.getPuntuacion()).compareTo(o1.getPuntuacion());
 		});
-		// jugadoresOrdenados.sort(Comparator.comparing(Jugador::getPuntuacion).reversed());
-		return jugadoresOrdenados;
+		return jugadoresOrdenados;		
 	}
 
 	/**
@@ -47,6 +38,19 @@ public class Sorting {
 	 * @return la lista ordenada de jugadores
 	 */
 	public static List<Jugador> ordenarPorPuntuacionPerdidasYNombre(List<Jugador> jugadores) {
-		return null;
+		List<Jugador> jugadoresOrdenados = new ArrayList<>();
+		jugadores.sort((o1,o2) -> {
+			int b = o1.getNombre().compareTo(o2.getNombre());
+			if(b != 0) {
+				return b;
+			}
+			if(o1.getPuntuacion() == o2.getPuntuacion()) {
+				return Integer.valueOf(o1.getPerdidas()).compareTo(o2.getPerdidas());
+			}
+			return Integer.valueOf(o2.getPuntuacion()).compareTo(o1.getPuntuacion());
+			
+		});
+		jugadoresOrdenados.addAll(jugadores);
+		return jugadoresOrdenados;
 	}
 }

@@ -1,6 +1,8 @@
 package com.opendev.sorting;
 
-public class Jugador implements Comparable<Jugador> {
+import java.util.Comparator;
+
+public class Jugador implements Comparator<Jugador>{
 
 	private String nombre;
 	private int puntuacion;
@@ -43,11 +45,7 @@ public class Jugador implements Comparable<Jugador> {
 	}
 
 	@Override
-	public int compareTo(Jugador o) {
-		int a = this.getNombre().compareTo(o.getNombre());
-		if (a != 0) {
-			return a;
-		}
-		return Integer.valueOf(o.getPuntuacion()).compareTo(this.getPuntuacion());
+	public int compare(Jugador o1, Jugador o2) {
+		return new Integer(o2.getPuntuacion()).compareTo(new Integer(o1.getPuntuacion()));
 	}
 }
