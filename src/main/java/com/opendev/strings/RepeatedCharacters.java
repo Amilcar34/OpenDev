@@ -13,20 +13,17 @@ public class RepeatedCharacters {
 	 * @return booleano indicando si la cadena cumple con las propiedades
 	 */
 	public Boolean isValid(String cadena) {
-		/*
-		 * for (int i = 0; i < cadena.length(); i++) { if(cadena.charAt(i)==) }
-		 */
-		int posicion, contador = 0;
-		boolean si = false;
+		int contador = 0, posicion = 0;
 		for (int i = 0; i < cadena.length(); i++) {
 			posicion = cadena.indexOf(cadena.charAt(i));
 			while (posicion != -1) {
 				contador++;
-				// se sigue buscando a partir de la posición siguiente a la encontrada
 				posicion = cadena.indexOf(cadena.charAt(i), posicion + 1);
-				si = true;
+				// if (cadena.charAt(i) == cadena.indexOf(cadena.charAt(0)))
+				return true;
 			}
+
 		}
-		return si;
+		return false;
 	}
 }
