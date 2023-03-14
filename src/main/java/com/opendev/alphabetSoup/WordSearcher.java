@@ -14,7 +14,6 @@ public class WordSearcher {
 			for (int i = 0; i < soup.length; i++) {
 				for (int j = 0; j < soup[i].length; j++) {
 					if (word.charAt(c) == soup[i][j]) {
-						//soup[i][j] = '*';
 						ok = true;
 					}
 
