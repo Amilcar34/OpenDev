@@ -16,15 +16,15 @@ public class Sorting {
 	 */
 	public static List<Jugador> ordenarPorPuntuacionYNombre(List<Jugador> jugadores) {
 		List<Jugador> jugadoresOrdenados = new ArrayList<>();
-		jugadoresOrdenados.addAll(jugadores);
 
 		jugadores.sort((o1, o2) -> {
-			int a = o1.getNombre().compareTo(o2.getNombre());
+			int a = Integer.valueOf(o2.getPuntuacion()).compareTo(o1.getPuntuacion());
 			if (a != 0) {
 				return a;
 			}
-			return Integer.valueOf(o2.getPuntuacion()).compareTo(o1.getPuntuacion());
+			return o1.getNombre().compareTo(o2.getNombre());
 		});
+		jugadoresOrdenados.addAll(jugadores);
 		return jugadoresOrdenados;		
 	}
 
@@ -40,14 +40,14 @@ public class Sorting {
 	public static List<Jugador> ordenarPorPuntuacionPerdidasYNombre(List<Jugador> jugadores) {
 		List<Jugador> jugadoresOrdenados = new ArrayList<>();
 		jugadores.sort((o1,o2) -> {
-			int b = o1.getNombre().compareTo(o2.getNombre());
+			int b = Integer.valueOf(o2.getPuntuacion()).compareTo(o1.getPuntuacion());
 			if(b != 0) {
 				return b;
 			}
 			if(o1.getPuntuacion() == o2.getPuntuacion()) {
 				return Integer.valueOf(o1.getPerdidas()).compareTo(o2.getPerdidas());
 			}
-			return Integer.valueOf(o2.getPuntuacion()).compareTo(o1.getPuntuacion());
+			return o1.getNombre().compareTo(o2.getNombre());
 			
 		});
 		jugadoresOrdenados.addAll(jugadores);
