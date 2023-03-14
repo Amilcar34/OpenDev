@@ -1,44 +1,51 @@
 package com.opendev.sorting;
 
-public class Jugador {
+import java.util.Comparator;
 
-    private String nombre;
-    private int puntuacion;
-    private int perdidas;
+public class Jugador implements Comparator<Jugador>{
 
-    public Jugador(String nombre, int puntuacion) {
-        this.nombre = nombre;
-        this.puntuacion = puntuacion;
-        this.perdidas = 0;
-    }
+	private String nombre;
+	private int puntuacion;
+	private int perdidas;
 
-    public Jugador(String nombre, int puntuacion, int perdidas) {
-        this.nombre = nombre;
-        this.puntuacion = puntuacion;
-        this.perdidas = perdidas;
-    }
+	public Jugador(String nombre, int puntuacion) {
+		this.nombre = nombre;
+		this.puntuacion = puntuacion;
+		this.perdidas = 0;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public Jugador(String nombre, int puntuacion, int perdidas) {
+		this.nombre = nombre;
+		this.puntuacion = puntuacion;
+		this.perdidas = perdidas;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public int getPuntuacion() {
-        return puntuacion;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setPuntuacion(int puntuacion) {
-        this.puntuacion = puntuacion;
-    }
+	public int getPuntuacion() {
+		return puntuacion;
+	}
 
-    public int getPerdidas() {
-        return perdidas;
-    }
+	public void setPuntuacion(int puntuacion) {
+		this.puntuacion = puntuacion;
+	}
 
-    public void setPerdidas(int perdidas) {
-        this.perdidas = perdidas;
-    }
+	public int getPerdidas() {
+		return perdidas;
+	}
+
+	public void setPerdidas(int perdidas) {
+		this.perdidas = perdidas;
+	}
+
+	@Override
+	public int compare(Jugador o1, Jugador o2) {
+		return new Integer(o2.getPuntuacion()).compareTo(new Integer(o1.getPuntuacion()));
+	}
 }
