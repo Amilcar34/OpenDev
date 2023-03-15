@@ -18,9 +18,12 @@ public class RepeatedCharacters {
 			posicion = cadena.indexOf(cadena.charAt(i));
 			while (posicion != -1) {
 				contador++;
-				posicion = cadena.indexOf(cadena.charAt(i), posicion + 1);
+				//posicion = cadena.indexOf(cadena.charAt(i), posicion + 1);
 				// if (cadena.charAt(i) == cadena.indexOf(cadena.charAt(0)))
 				return true;
+				/*como hacer para contar la cantidad de veces que se repita el caracter y compararla con la
+				 *  cantidad de otro caracter incluyendo espacios y strings que tengan un caracter de mas o de menos.
+				 * */
 			}
 
 		}

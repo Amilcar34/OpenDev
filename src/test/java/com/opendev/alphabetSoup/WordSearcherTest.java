@@ -86,6 +86,7 @@ public class WordSearcherTest {
 	@Test
 	public void testNoEstaZapatillas() {
 		assertTrue(!wordSearcher.isPresent("ZAPATILLAS"));
+		
 	}
 
 	@Test
