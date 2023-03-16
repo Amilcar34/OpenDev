@@ -1,5 +1,7 @@
 package com.opendev.strings;
 
+import java.util.HashMap;
+
 public class RepeatedCharacters {
 
 	/**
@@ -13,7 +15,7 @@ public class RepeatedCharacters {
 	 * @return booleano indicando si la cadena cumple con las propiedades
 	 */
 	public Boolean isValid(String cadena) {
-		int contador = 0, posicion = 0;
+		/*int contador = 0, posicion = 0;
 		for (int i = 0; i < cadena.length(); i++) {
 			posicion = cadena.indexOf(cadena.charAt(i));
 			while (posicion != -1) {
@@ -21,12 +23,36 @@ public class RepeatedCharacters {
 				//posicion = cadena.indexOf(cadena.charAt(i), posicion + 1);
 				// if (cadena.charAt(i) == cadena.indexOf(cadena.charAt(0)))
 				return true;
-				/*como hacer para contar la cantidad de veces que se repita el caracter y compararla con la
-				 *  cantidad de otro caracter incluyendo espacios y strings que tengan un caracter de mas o de menos.
-				 * */
 			}
 
 		}
 		return false;
-	}
+	}*/
+		boolean iguales = true;
+		HashMap<Character, Integer> contador = new HashMap<Character, Integer>();
+		
+		// frecuencia de cada caracter
+		for (int i = 0; i < cadena.length(); i++) {
+			char caracter = cadena.charAt(i);
+			if(contador.containsKey(caracter)) {
+				contador.put(caracter, contador.get(caracter)+1);
+			} else {
+				contador.put(caracter, 1);
+			}
+			
+		}
+		// verificar si todos los caracteres tienen la misma frecuencia
+		int frecuencia = -1;
+		for(int valor : contador.values()) {
+			if (frecuencia == -1) {
+				frecuencia = valor;
+			} else if(frecuencia != valor) {
+				iguales = false;
+			}
+		}
+		if(iguales) {
+			return true;
+		}
+		return false;
 }
+	}
