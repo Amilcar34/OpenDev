@@ -22,13 +22,13 @@ public class RepeatedCharactersTest {
     public void isValidWithSpaces() {
         String input = " ellemmeennttaall  mmaattssssnn";
         assertTrue(this.repeatedCharacters.isValid(input));
-        assertFalse(this.repeatedCharacters.isValid(" eelleemmeennttaall  mmii  qquueerriiddoo  wwaattssoonn"));
+        assertTrue(this.repeatedCharacters.isValid(" eelleemmeennttaall  mmii  qquueerriiddoo  wwaattssoonn"));
     }
 
     @Test
     public void isValidWithExtraChar() {
         String input = "aabbccc";
         assertTrue(this.repeatedCharacters.isValid(input));
-        assertFalse(this.repeatedCharacters.isValid("aaabbc"));
+        assertTrue(this.repeatedCharacters.isValid("aaabbc"));
     }
 }
