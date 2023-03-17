@@ -1,4 +1,4 @@
-package com.opendev.alphabetSoup;
+	package com.opendev.alphabetSoup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,10 @@ public class WordSearcher {
 		 * i++) { for (int j = 0; j < soup[i].length; j++)
 		 */
 
-		char[] letras = word.toCharArray();
+		char letras[] = word.toCharArray();
 		int indice = 0;
 		List<String> m = new ArrayList<String>();
+		boolean ok = false;
 
 		for (int i = 0; i < soup.length; i++) {
 			for (int j = 0; j < soup[1].length; j++) {

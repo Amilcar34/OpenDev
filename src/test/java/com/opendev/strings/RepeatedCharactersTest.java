@@ -13,7 +13,7 @@ public class RepeatedCharactersTest {
 
     @Test
     public void isValidSimple() {
-        String input = "a3o1oa3";
+        String input = "a3o11oa3";
         assertTrue(this.repeatedCharacters.isValid(input));
         assertTrue(this.repeatedCharacters.isValid("aa3311oo"));
     }
@@ -22,13 +22,13 @@ public class RepeatedCharactersTest {
     public void isValidWithSpaces() {
         String input = " ellemmeennttaall  mmaattssssnn";
         assertTrue(this.repeatedCharacters.isValid(input));
-        assertTrue(this.repeatedCharacters.isValid(" eelleemmeennttaall  mmii  qquueerriiddoo  wwaattssoonn"));
+        assertFalse(this.repeatedCharacters.isValid(" eelleemmeennttaall  mmii  qquueerriiddoo  wwaattssoonn"));
     }
 
     @Test
     public void isValidWithExtraChar() {
         String input = "aabbccc";
         assertTrue(this.repeatedCharacters.isValid(input));
-        assertTrue(this.repeatedCharacters.isValid("aaabbc"));
+        assertFalse(this.repeatedCharacters.isValid("aaabbc"));
     }
 }

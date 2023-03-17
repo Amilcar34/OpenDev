@@ -2,9 +2,11 @@ package com.opendev.strings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 public class RepeatedCharacters {
 
@@ -27,21 +29,34 @@ public class RepeatedCharacters {
 			char caracter = cadena.charAt(i);
 			if (contador.containsKey(caracter)) {
 				contador.put(caracter, contador.get(caracter) + 1);
+
 			} else {
 				contador.put(caracter, 1);
 			}
+		}
+		Set<Map.Entry<Character, Integer>> freq = contador.entrySet();
+		Iterator<Map.Entry<Character, Integer>> iterador = freq.iterator();
 
-		}
-		// verificar si todos los caracteres tienen la misma frecuencia
-		int frecuencia = -1;
-		for (int valor : contador.values()) {
-			if (frecuencia == -1 || frecuencia == 1) {
-				frecuencia = valor;
-			} 
-		}
-		if (iguales) {
-			return true;
+		// muestra q tanto se repite
+		while (iterador.hasNext()) {
+			Map.Entry<Character, Integer> item = iterador.next();
+			System.out.println(item.getKey() + ": " + item.getValue());
+			int frecuencia = -1;
+			for (int valor : contador.values()) {
+				if (frecuencia == -1) {
+					if (item.getValue() == valor + 1 || item.getValue() == valor - 1) {
+						frecuencia = valor;
+					}
+				} else if (frecuencia != valor) {
+					iguales = false;
+				}
+			}
+			if (iguales) {
+				return true;
+			}
 		}
 		return false;
+		// verificar si todos los caracteres tienen la misma frecuencia
+
 	}
 }
