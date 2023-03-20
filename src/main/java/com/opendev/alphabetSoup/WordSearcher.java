@@ -1,6 +1,7 @@
-	package com.opendev.alphabetSoup;
+package com.opendev.alphabetSoup;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class WordSearcher {
@@ -11,33 +12,78 @@ public class WordSearcher {
 		this.soup = soup;
 	}
 
-	/*
-	 * recorrer la sopa no solo secuencialmente sino como si fueran cinco cuadrados.
-	 * ej: A B G H K
-	 */
-
 	public boolean isPresent(String word) {
-		/*
-		 * for (int c = 0; c < word.length(); c++) { for (int i = 0; i < soup.length;
-		 * i++) { for (int j = 0; j < soup[i].length; j++)
-		 */
-
 		char letras[] = word.toCharArray();
 		int indice = 0;
-		List<String> m = new ArrayList<String>();
-		boolean ok = false;
+		List<String> coincidencias = new ArrayList<String>();
 
-		for (int i = 0; i < soup.length; i++) {
-			for (int j = 0; j < soup[1].length; j++) {
-				if (letras[indice] == soup[i][j]) {
-					m.add(i + " " + j);
+		for (int fila = 0; fila < soup.length; fila++) {
+			for (int columna = 0; columna < soup[0].length; columna++) {
+				if (letras[indice] == soup[fila][columna]) {
+					coincidencias.add(fila + " " + columna);
 					if (indice == letras.length - 1) {
+						System.out.println(coincidencias);
 						return true;
 					}
 					indice++;
+				} else if (!coincidencias.isEmpty()) {
+					break;
 				}
+
+			}
+		}
+		coincidencias.clear();
+		indice = 0;
+		for (int fila = soup.length; fila == 0; fila--) {
+			for (int columna = soup[0].length; columna == 0; columna--) {
+				if (letras[indice] == soup[fila][columna]) {
+					coincidencias.add(fila + " " + columna);
+					if (indice == letras.length - 1) {
+						System.out.println(coincidencias);
+						return true;
+					}
+					indice++;
+				} else if (!coincidencias.isEmpty()) {
+					break;
+				}
+
+			}
+		}
+		coincidencias.clear();
+		indice = 0;
+		for (int columna = 0; columna == soup[0].length ; columna++) {
+			for (int fila = 0; fila == soup.length; fila++) {
+				if (letras[indice] == soup[fila][columna]) {
+					coincidencias.add(fila + " " + columna);
+					if (indice == letras.length - 1) {
+						System.out.println(coincidencias);
+						return true;
+					}
+					indice++;
+				} else if (!coincidencias.isEmpty()) {
+					break;
+				}
+
+			}
+		}
+		coincidencias.clear();
+		indice = 0;
+		for (int columna = soup[0].length; columna == 0 ; columna--) {
+			for (int fila = soup.length; fila == 0; fila--) {
+				if (letras[indice] == soup[fila][columna]) {
+					coincidencias.add(fila + " " + columna);
+					if (indice == letras.length - 1) {
+						System.out.println(coincidencias);
+						return true;
+					}
+					indice++;
+				} else if (!coincidencias.isEmpty()) {
+					break;
+				}
+
 			}
 		}
 		return false;
 	}
+
 }
