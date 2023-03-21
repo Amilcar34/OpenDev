@@ -44,7 +44,7 @@ public class RepeatedCharacters {
 			int frecuencia = -1;
 			for (int valor : contador.values()) {
 				if (frecuencia == -1) {
-					if (item.getValue() == valor + 1 || item.getValue() == valor - 1) {
+					if (item.getValue() == valor - 1 || item.getValue() == valor + 1) {
 						frecuencia = valor;
 					} 
 				} else if (frecuencia != valor) {

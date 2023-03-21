@@ -57,6 +57,12 @@ public class WordSearcherTest {
 	public void testEstaZapatilla() {
 		assertTrue(wordSearcher.isPresent("ZAPATILLA"));
 	}
+	
+	@Test
+	public void testNoEstaZapatillas() {
+		assertTrue(!wordSearcher.isPresent("ZAPATILLAS"));
+		
+	}
 
 	@Test
 	public void testEstaCazador() {
@@ -81,12 +87,6 @@ public class WordSearcherTest {
 	@Test
 	public void testEstaCuchilla() {
 		assertTrue(wordSearcher.isPresent("CUCHILLA"));
-	}
-
-	@Test
-	public void testNoEstaZapatillas() {
-		assertTrue(!wordSearcher.isPresent("ZAPATILLAS"));
-		
 	}
 
 	@Test
