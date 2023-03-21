@@ -1,11 +1,9 @@
 package com.opendev.strings;
 
-import org.junit.Test;
-
-import com.opendev.strings.RepeatedCharacters;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 
 public class RepeatedCharactersTest {
 
