@@ -40,13 +40,13 @@ public class RepeatedCharacters {
 		// muestra q tanto se repite
 		while (iterador.hasNext()) {
 			Map.Entry<Character, Integer> item = iterador.next();
-			// System.out.println(item.getKey() + ": " + item.getValue());
+			 System.out.println(item.getKey() + ": " + item.getValue());
 			int frecuencia = -1;
 			for (int valor : contador.values()) {
 				if (frecuencia == -1) {
 					if (item.getValue() == valor + 1 || item.getValue() == valor - 1) {
 						frecuencia = valor;
-					}
+					} 
 				} else if (frecuencia != valor) {
 					iguales = false;
 				}
