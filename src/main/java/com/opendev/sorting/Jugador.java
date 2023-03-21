@@ -45,6 +45,11 @@ public class Jugador implements Comparator<Jugador>{
 	}
 
 	@Override
+	public String toString() {
+		return "Jugador [nombre=" + nombre + ", puntuacion=" + puntuacion + ", perdidas=" + perdidas + "]";
+	}
+
+	@Override
 	public int compare(Jugador o1, Jugador o2) {
 		return o1.getNombre().compareTo(o2.getNombre());
 	}
