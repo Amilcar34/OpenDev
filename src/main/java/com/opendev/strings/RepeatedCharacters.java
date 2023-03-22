@@ -23,9 +23,9 @@ public class RepeatedCharacters {
 	public Boolean isValid(String cadena) {
 
 		boolean iguales = false;
-		Map<Integer, Integer> cantCaracteres = new HashMap<Integer, Integer>();
-		List<Integer> reduccion = new ArrayList<Integer>();
-		HashMap<Character, Integer> contador = new HashMap<Character, Integer>();
+		Map<Integer, Integer> cantCaracteres = new HashMap<>();
+		List<Integer> reduccion = new ArrayList<>();
+		HashMap<Character, Integer> contador = new HashMap<>();
 
 		// frecuencia de cada caracter
 		for (int i = 0; i < cadena.length(); i++) {
