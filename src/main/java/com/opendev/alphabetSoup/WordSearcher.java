@@ -1,7 +1,6 @@
 package com.opendev.alphabetSoup;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class WordSearcher {
@@ -16,7 +15,7 @@ public class WordSearcher {
 		char[] letras = word.toCharArray();
 		boolean palabraEncontrada = false;
 		int indice = 0;
-		List<String> coincidencias = new ArrayList<String>();
+		List<String> coincidencias = new ArrayList<>();
 
 		buscador: for (int i = 0; i < soup.length; i++) {
 			for (int j = 0; j < soup[i].length; j++) {
