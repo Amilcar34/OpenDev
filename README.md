@@ -48,8 +48,8 @@ Consiste en mutar ciertos puntos del código fuente y ver si detectan estos erro
 </plugin>
 
 - Desde una terminal, ejecute:
-<b>mvn test-compile org.pitest:pitest-maven:mutationCoverage<b>
-- Se puede consultar los informes en formato HTML en el directorio <b>target/pit-test/YYYYMMDDHHMI<b>
+<b>mvn test-compile org.pitest:pitest-maven:mutationCoverage</b>
+- Se puede consultar los informes en formato HTML en el directorio <b>target/pit-test/YYYYMMDDHHMI</b>
 
 
 ## Ejercicio 1: Sorting
