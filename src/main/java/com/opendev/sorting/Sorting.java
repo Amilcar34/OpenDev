@@ -43,10 +43,11 @@ public class Sorting {
 				return b;
 			}
 			if (o1.getPuntuacion() == o2.getPuntuacion()) {
-				return Integer.compare(o1.getPerdidas(), o2.getPerdidas());
+				if (o1.getPerdidas() == o2.getPerdidas()) {
+					return o1.getNombre().compareTo(o2.getNombre());
+				}
 			}
-//			}
-			return o1.getNombre().compareTo(o2.getNombre());
+			return Integer.compare(o1.getPerdidas(), o2.getPerdidas());
 		});
 		jugadoresOrdenados.addAll(jugadores);
 		return jugadoresOrdenados;
