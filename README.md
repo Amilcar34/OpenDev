@@ -18,6 +18,40 @@
   encuentran en el package correspondiente al ejercicio dentro de ```src/test/```
 - Se espera ver implementaciones de hasta JAVA 11 inclusive.
 
+## Mutation Testing
+Mutation testing es una tecnica de prueba que implica hacer pequeñas modificaciones y medir que tan bien reaccionan los test a esas modificaciones.
+Consiste en mutar ciertos puntos del código fuente y ver si detectan estos errores mediante los unit test.
+- Si los test unitarios fallan es porque han detectado esos pequeños cambios que hemos incluido, entonces el mutante fue asesinado.
+-	Si al comprobar el código con los test unitarios no se genera un error, significa que el desarrollo no es suficientemente robusto, y, por tanto, habrá que continuar trabajando en él hasta conseguir el resultado que se marcó como objetivo en la definición de las funcionalidades del proyecto. (el mutante sobrevivió)
+
+### Cómo usar PITest 
+- Aplicar sus dependencias y plugins en el ```pom.xml```
+<dependency>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-parent</artifactId>
+    <version>1.1.10</version>
+    <type>pom</type>
+</dependency>
+
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.1.10</version>
+    <configuration>
+        <targetClasses>
+            <param>com.baeldung.testing.mutation.*</param>
+        </targetClasses>
+        <targetTests>
+            <param>com.baeldung.mutation.test.*</param>
+	</targetTests>
+     </configuration>
+</plugin>
+
+- Desde una terminal, ejecute:
+<b>mvn test-compile org.pitest:pitest-maven:mutationCoverage<b>
+- Se puede consultar los informes en formato HTML en el directorio <b>target/pit-test/YYYYMMDDHHMI<b>
+
+
 ## Ejercicio 1: Sorting
 
 Para realizar este ejercicio se debe modificar el archivo Sorting.java.
