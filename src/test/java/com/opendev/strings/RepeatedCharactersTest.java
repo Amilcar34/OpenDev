@@ -8,6 +8,12 @@ import org.junit.Test;
 public class RepeatedCharactersTest {
 
     private RepeatedCharacters repeatedCharacters = new RepeatedCharacters();
+    
+    @Test
+    public void cuandoEnElContadorYaExisteElCaracter() {
+    	 String input = "a3o1oa3";
+         assertTrue(this.repeatedCharacters.isValid(input));
+    }
 
     @Test
     public void isValidSimple() {
