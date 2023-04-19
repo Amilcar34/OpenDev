@@ -9,13 +9,6 @@ import java.util.List;
 import org.junit.Test;
 
 public class SortingTest {
-	
-	/*TODO mutacion donde las puntuaciones sean distintas
-	 * entonces retorne la primera condicion (o1 es mayor)
-	*/  
-	/*TODO mutacion donde las puntuaciones son distintas 
-	 * entonces o2 es mayor*/
-	/**/
 
 	@Test
 	public void ordenarPorPuntuacionPerdidasYNombreSiLasPuntuacionesYPerdidasSonIguales() {
@@ -182,6 +175,11 @@ public class SortingTest {
 		List<Jugador> jugadoresResult = Sorting.ordenarPorPuntuacionPerdidasYNombre(jugadores);
 		assertEquals(1, jugadoresResult.size());
 		assertEquals(p1.getNombre(), jugadoresResult.get(0).getNombre());
+	}
+	
+	@Test
+	public void Sorting() {
+		Sorting sorting = new Sorting();
 	}
 
 }
