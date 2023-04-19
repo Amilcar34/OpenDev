@@ -45,7 +45,6 @@ public class Sorting {
 			if (o1.getPuntuacion() == o2.getPuntuacion()) {
 				return Integer.compare(o1.getPerdidas(), o2.getPerdidas());
 			}
-//			}
 			return o1.getNombre().compareTo(o2.getNombre());
 		});
 		jugadoresOrdenados.addAll(jugadores);
