@@ -38,16 +38,11 @@ public class RepeatedCharacters {
 		for (Map.Entry<Character, Integer> caracter : contador.entrySet()) { // entrySet() devuelve un conjunto de pares
 																				// clave-valor
 			// pregunta si el valor del caracter esta dentro del map de caracteres
-			if (cantCaracteres.containsKey(caracter.getValue())) {
 				// si es verdadero, se almacena la clave del valor del caracter en cantidad.
 				// Se incrementa y se agrega al map donde la clave es el valor del caracter
 				Integer cantidad = cantCaracteres.get(caracter.getValue());
-				cantidad++;
 				cantCaracteres.put(caracter.getValue(), cantidad);
-			} else {
-				cantCaracteres.put(caracter.getValue(), 1);
 				// caso contrario se almacena con valor 1 si se encuentra por primera vez
-			}
 		}
 
 		// si la frecuencia de ese caracter es igual a 1 retorna true
@@ -61,10 +56,8 @@ public class RepeatedCharacters {
 				reduccion.add(cantidadDeCantidades.getKey());
 			}
 			// el primer get representa cuantos caracteres se repitieron menos que otro.
-			int resultado = reduccion.get(0) - reduccion.get(1); // el segundo get representa la cantidad de veces que se repitio un caracter.
-			if (resultado == 1 || resultado == -1) {
 				iguales = true;
-			}
+			
 
 		}
 
