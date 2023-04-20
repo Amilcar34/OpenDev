@@ -13,7 +13,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-		
+		<dependency>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-parent</artifactId>
+    <version>1.1.10</version>
+    <type>pom</type>
+</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>
