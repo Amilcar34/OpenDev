@@ -25,38 +25,11 @@ Mutation testing es una tecnica de prueba usado en este proyecto para la robuste
 -	Si al comprobar el código no se genera un error, significa que el mutante sobrevivió.
 
 ### Cómo usar PITest 
-<<<<<<< HEAD
 PITest es un framework que se utiliza en el proyecto para la mutación de test.
-- Desde una terminal o en la terminal de eclipse, ejecute:
+
+- Desde una terminal o en la terminal de Eclipse, ejecute:
 <b>mvn test-compile org.pitest:pitest-maven:mutationCoverage<b>
-- Se puede consultar los informes en formato HTML en el directorio <b>target/pit-test/YYYYMMDDHHMI<b>
-=======
-- Aplicar sus dependencias y plugins en el ```pom.xml```
-<dependency>
-    <groupId>org.pitest</groupId>
-    <artifactId>pitest-parent</artifactId>
-    <version>1.1.10</version>
-    <type>pom</type>
-</dependency>
-
-<plugin>
-    <groupId>org.pitest</groupId>
-    <artifactId>pitest-maven</artifactId>
-    <version>1.1.10</version>
-    <configuration>
-        <targetClasses>
-            <param>com.baeldung.testing.mutation.*</param>
-        </targetClasses>
-        <targetTests>
-            <param>com.baeldung.mutation.test.*</param>
-	</targetTests>
-     </configuration>
-</plugin>
-
-- Desde una terminal, ejecute:
-<b>mvn test-compile org.pitest:pitest-maven:mutationCoverage</b>
 - Se puede consultar los informes en formato HTML en el directorio <b>target/pit-test/YYYYMMDDHHMI</b>
->>>>>>> fac9a833a6fcd12ca52118fcb5fe4434303e50d7
 
 
 ## Ejercicio 1: Sorting
