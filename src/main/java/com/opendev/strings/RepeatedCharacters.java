@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class RepeatedCharacters {
 
@@ -25,10 +26,15 @@ public class RepeatedCharacters {
 		HashMap<Character, Integer> contador = new HashMap<>();
 
 		// frecuencia de cada caracter
-		for (int i = 0; i < cadena.length(); i++) {
-			char caracter = cadena.charAt(i);
+		char[] chars = cadena.toCharArray();
+		for (Character caracter : chars) {
 			if (contador.containsKey(caracter)) {
-				contador.put(caracter, contador.get(caracter) + 1);
+				Integer cantidad = contador.get(caracter);
+				
+				AtomicInteger num = new AtomicInteger(cantidad);
+				num.getAndIncrement(); // incrementa el valor almacenado en la instancia y devuelve el valor anterior
+				
+				contador.put(caracter, num.get());
 
 			} else {
 				contador.put(caracter, 1);
@@ -38,11 +44,11 @@ public class RepeatedCharacters {
 		for (Map.Entry<Character, Integer> caracter : contador.entrySet()) { // entrySet() devuelve un conjunto de pares
 																				// clave-valor
 			// pregunta si el valor del caracter esta dentro del map de caracteres
-				// si es verdadero, se almacena la clave del valor del caracter en cantidad.
-				// Se incrementa y se agrega al map donde la clave es el valor del caracter
-				Integer cantidad = cantCaracteres.get(caracter.getValue());
-				cantCaracteres.put(caracter.getValue(), cantidad);
-				// caso contrario se almacena con valor 1 si se encuentra por primera vez
+			// si es verdadero, se almacena la clave del valor del caracter en cantidad.
+			// Se incrementa y se agrega al map donde la clave es el valor del caracter
+			Integer cantidad = cantCaracteres.get(caracter.getValue());
+			cantCaracteres.put(caracter.getValue(), cantidad);
+			// caso contrario se almacena con valor 1 si se encuentra por primera vez
 		}
 
 		// si la frecuencia de ese caracter es igual a 1 retorna true
@@ -56,8 +62,7 @@ public class RepeatedCharacters {
 				reduccion.add(cantidadDeCantidades.getKey());
 			}
 			// el primer get representa cuantos caracteres se repitieron menos que otro.
-				iguales = true;
-			
+			iguales = true;
 
 		}
 
