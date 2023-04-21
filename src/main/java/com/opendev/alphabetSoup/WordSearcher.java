@@ -1,7 +1,6 @@
 package com.opendev.alphabetSoup;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class WordSearcher {
 
@@ -12,68 +11,57 @@ public class WordSearcher {
 	}
 
 	public boolean isPresent(String word) {
+		
 		char[] letras = word.toCharArray();
 		boolean palabraEncontrada = false;
-		int indice = 0;
-		List<String> coincidencias = new ArrayList<>();
+		// arreglo de booleanos donde cada posicion indica si la palabra se encontro o no
+		boolean[][] encontradas = new boolean[soup.length][soup[0].length];
 
-		buscador: for (int i = 0; i < soup.length; i++) {
-			for (int j = 0; j < soup[i].length; j++) {
-				palabraEncontrada = letraEncontrada(letras, indice, i, j, coincidencias);
+		for (int i = 0; i < soup.length; i++) {
+			for (int j = 0; j < soup[0].length; j++) {
+				palabraEncontrada = letraEncontrada(letras, encontradas, i, j);
 				if (palabraEncontrada) {
-					break buscador;
+					return true;
 				}
 			}
 		}
 
-		return palabraEncontrada;
+		return false;
 	}
 
-	private boolean letraEncontrada(char[] letras, int indice, int i, int j, List<String> coincidencias) {
-		boolean palabraEncontrada = false;
-		if (letras[indice] == this.soup[i][j]) {
-			coincidencias.add(i + "-" + j);
-			if (indice == letras.length - 1) {
-				return true;
-			}
-			indice++;
+	private boolean letraEncontrada(char[] letras, boolean[][] encontradas, int i, int j) {
+		
+		if (encontradas[i][j]) {
+			return false;
+		}
+		char letra = soup[i][j];
+		if (letras[0] != letra) {
+			return false;
+		}
+		if (letras.length == 1) {
+			return true;
+		}
 
-			int filaMas = i + 1;
-			int filaMenos = i - 1;
-			int colMas = j + 1;
-			int colMenos = j - 1;
+		encontradas[i][j] = true;
 
-			if (filaMas <= soup.length - 1 && !coincidencias.contains(filaMas + "-" + j)) {
-				palabraEncontrada = letraEncontrada(letras, indice, filaMas, j, coincidencias);
-			}
-			if (filaMenos >= 0 && !palabraEncontrada && !coincidencias.contains(filaMenos + "-" + j)) {
-				palabraEncontrada = letraEncontrada(letras, indice, i - 1, j, coincidencias);
-			}
-			if (colMas <= soup[0].length - 1 && !palabraEncontrada && !coincidencias.contains(i + "-" + colMas)) {
-				palabraEncontrada = letraEncontrada(letras, indice, i, colMas, coincidencias);
-			}
-			if (colMenos >= 0 && !palabraEncontrada && !coincidencias.contains(i + "-" + colMenos)) {
-				palabraEncontrada = letraEncontrada(letras, indice, i, colMenos, coincidencias);
-			}
-			if (filaMas <= soup.length - 1 && colMas <= soup[0].length - 1 && !palabraEncontrada
-					&& !coincidencias.contains(filaMas + "-" + colMas)) {
-				palabraEncontrada = letraEncontrada(letras, indice, filaMas, colMas, coincidencias);
-			}
-			if (filaMenos >= 0 && colMenos >= 0 && !palabraEncontrada
-					&& !coincidencias.contains(filaMenos + "-" + colMenos)) {
-				palabraEncontrada = letraEncontrada(letras, indice, filaMenos, colMenos, coincidencias);
-			}
-			if (filaMenos >= 0 && colMas <= soup[0].length - 1 && !palabraEncontrada
-					&& !coincidencias.contains(filaMenos + "-" + colMas)) {
-				palabraEncontrada = letraEncontrada(letras, indice, filaMenos, colMas, coincidencias);
-			}
-			if (filaMas <= soup.length - 1 && colMenos >= 0 && !palabraEncontrada
-					&& !coincidencias.contains(filaMas + "-" + colMenos)) {
-				palabraEncontrada = letraEncontrada(letras, indice, filaMas, colMenos, coincidencias);
+		int filaMas = Math.min(i + 1, soup.length - 1);
+		int filaMenos = Math.max(i - 1, 0);
+		int colMas = Math.min(j + 1, soup[0].length - 1);
+		int colMenos = Math.max(j - 1, 0);
+
+		for (int k = filaMenos; k <= filaMas; k++) {
+			for (int l = colMenos; l <= colMas; l++) {
+				if (k == i && l == j) {
+					continue;
+				}
+				//  copiar una seccion de un arreglo existente en un nuevo arreglo
+				if (letraEncontrada(Arrays.copyOfRange(letras, 1, letras.length), encontradas, k, l)) {
+					return true;
+				}
 			}
 		}
-		return palabraEncontrada;
 
+		encontradas[i][j] = false;
+		return false;
 	}
-
 }
